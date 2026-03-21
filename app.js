@@ -21,15 +21,30 @@ addbtn.addEventListener("click", function (e) {
 
 function renderTask() {
     list.innerHTML = "";
+    
+    updateOverdueStatus();
+
     for (let i = 0; i < taskArray.length; i++) {
         let taskItem = document.createElement("li");
         taskItem.innerText = 
-        taskArray[i].name + "-" +
-        taskArray[i].category + "-" +
+        taskArray[i].name + " " +
+        taskArray[i].category + " " +
+        taskArray[i].deadline + " " +
         taskArray[i].status;
         
         list.appendChild(taskItem);
     }
-
 }
 
+function updateOverdueStatus() {
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    for (let i = 0; i < taskArray.length; i++) {
+        let deadlineDate = new Date(taskArray[i].deadline);
+
+        if (deadlineDate < today && taskArray[i].status != "Completed") {
+            taskArray[i].status = "Overdue";
+        }
+    }
+}
