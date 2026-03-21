@@ -5,16 +5,17 @@ let list = document.getElementById('list');
 
 
 
-addbtn.addEventListener("click", function () {
-let task = {
+addbtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let task = {
     name: document.getElementById('name').value,
     category: document.getElementById('category').value,
-    deadline: document.getElementById('deadline"').value,
+    deadline: document.getElementById("deadline").value,
     status: "In Progress"
 }
 
     taskArray.push(task);   
-    console.log(taskArray);
     renderTask();
 })
 
@@ -22,13 +23,12 @@ function renderTask() {
     list.innerHTML = "";
     for (let i = 0; i < taskArray.length; i++) {
         let taskItem = document.createElement("li");
-        // taskItem.innerText = 
-        // taskArray[i].name + "-" +
-        // taskArray[i].category + "-" +
-        // taskArray[i].status;
-        console.log("hi");
-console.log(taskArray[i]);
-        // list.appendChild(taskItem);
+        taskItem.innerText = 
+        taskArray[i].name + "-" +
+        taskArray[i].category + "-" +
+        taskArray[i].status;
+        
+        list.appendChild(taskItem);
     }
 
 }
