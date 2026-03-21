@@ -32,6 +32,29 @@ function renderTask() {
         taskArray[i].deadline + " " +
         taskArray[i].status;
         
+        let statusSelect = document.createElement("select");
+
+        let option1 = document.createElement("option");
+        option1.value = "In Progress";
+        option1.text = "In Progress";
+
+        let option2 = document.createElement("option");
+        option2.value = "Completed";
+        option2.text = "Completed";
+
+        statusSelect.appendChild(option1);
+        statusSelect.appendChild(option2);
+
+        statusSelect.value = taskArray[i].status;
+
+        statusSelect.addEventListener("change", function(){
+            taskArray[i].status = statusSelect.value;
+            renderTask();
+        })
+
+    
+        taskItem.appendChild(statusSelect);
+
         list.appendChild(taskItem);
     }
 }
