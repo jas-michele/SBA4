@@ -15,43 +15,39 @@
 <body>
 
     <section>
-        <div class="card p-4 shadow border-0 rounded-4 mx-auto" >
+        <div class="card p-4 shadow border-0 rounded-4 mx-auto" style="max-width: 500px;">
 
             <h3 class="text-center mb-3">Add Task</h3>
             <form id="form">
                
-                <div class="mb-3 d-flex justify-content-center">
-                    <div style="width: 75%;">
-                        <label>Name:</label>
+                <div class="mb-3 mx-auto" style="max-width: 400px;">
+                        <label class="form-label text-center w-100">Name</label>
                         <input id="name" type="text" class="form-control rounded-3 shadow-sm w-75">
                     </div>    
-                </div>
                 
-                <div class="mb-3 d-flex justify-content-center">
-                    <div style="width: 75%;">
-                        <label>Category:</label>
+                
+                <div class="mb-3 mx-auto" style="max-width: 400px;">
+                        <label class="form-label text-center w-100">Category</label>
                         <input id="category" type="text" class="form-control rounded-3 shadow-sm">
-                    </div>
                 </div>
 
                 <div class="mb-3">
-                     <label>Deadline:</label>
-                     <input id="deadline" type="date" >
+                     <label class="form-label fw-semibold">Deadline</label>
+                     <input id="deadline" type="date"  class="form-control rounded-3 shadow-sm">
                 </div>
 
                 <div class="text-center">
                     <button id="addTask" t class="btn btn-primary rounded-pill px-4 py-2 shadow-sm" ">Add Task</button>
                 </div>
-            </form>
+            </form> 
 
-            
-
-           
         </div>
     </section>
 
     <section>
-        <div class="d-flex gap-2 justify-content-center">
+        <div class="mt-4 d-flex gap-4 justify-content-center">
+
+            <label class="me-2">Status</label>
              <select id="filterStatus">
                 <option value="All">All</option>
                 <option value="In Progress">In Progress</option>
@@ -59,6 +55,7 @@
                 <option value="Overdue">Overdue</option>
             </select>
 
+            <label class="me-2">Category</label>
             <select id="filterCategory">
                 <option value="All">All</option>
             </select>

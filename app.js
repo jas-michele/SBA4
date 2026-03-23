@@ -25,6 +25,7 @@ addbtn.addEventListener("click", function (e) {
 
     taskArray.push(task);
     renderTask();
+    form.reset();
 })
 
 function renderTask() {
@@ -41,13 +42,26 @@ function renderTask() {
         }
 
         let taskItem = document.createElement("li");
-        taskItem.innerText =
-            taskArray[i].name + " " +
-            taskArray[i].category + " " +
-            taskArray[i].deadline + " " +
-            taskArray[i].status;
+        taskItem.className = "card p-3 mb-2 shadow-sm border-0";
+            taskItem.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center">
 
+                <div>
+                <h6 class="mb-1">${taskArray[i].name}</h6>
+                <small class="text-muted">
+                ${taskArray[i].category} • ${taskArray[i].deadline}
+                </small>
+                </div>
+
+                <span class="bg-warning text-dark">
+                    ${taskArray[i].status}
+                </span>    
+
+            </div>
+        `;
         let statusSelect = document.createElement("select");
+
+            statusSelect.className = "form-select w-auto ms-3";
 
         let option1 = document.createElement("option");
         option1.value = "In Progress";
